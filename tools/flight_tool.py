@@ -23,8 +23,6 @@ BASE_URL = "https://api.aviationstack.com/v1/flights"
 
 AIRPORTS = airportsdata.load("IATA")
 
-
-
 COUNTRY_ALIASES = {
     "usa": "US",
     "u.s.a": "US",
@@ -88,9 +86,6 @@ COUNTRY_MAIN_AIRPORT = {
     "ES": "MAD",
 }
 
-
-
-
 CITY_MAIN_AIRPORT = {
     "dhaka": "DAC",
     "delhi": "DEL",
@@ -118,7 +113,6 @@ CITY_MAIN_AIRPORT = {
     "madrid": "MAD",
     "frankfurt": "FRA",
 }
-
 
 def clean_text(text: str) -> str:
     text = text.lower().strip()
