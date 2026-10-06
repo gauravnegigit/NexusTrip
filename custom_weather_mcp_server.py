@@ -77,8 +77,5 @@ def get_forecast(city: str):
         "forecast": forecast
     }
 
-
-
-
 if __name__ == "__main__":
     mcp.run()
