@@ -47,7 +47,7 @@ WEATHER_ENV["OPENWEATHER_API_KEY"] = (
 # ==========================================
 
 llm = ChatGroq(
-    model="llama-3.3-70b-versatile",
+    model="openai/gpt-oss-120b",
     api_key=GROQ_API_KEY
 )
 
@@ -97,43 +97,43 @@ client = MultiServerMCPClient(
 # Diagnostic function
 # ==========================================
 
-async def get_all_tools():
-    """
-    Load each MCP server separately.
+# async def get_all_tools():
+#     """
+#     Load each MCP server separately.
 
-    A broken server will no longer prevent the other
-    working servers from loading.
-    """
+#     A broken server will no longer prevent the other
+#     working servers from loading.
+#     """
 
-    all_tools = []
+#     all_tools = []
 
-    for server_name in (
-        "tavily",
-        "aviationstack",
-        "weather"
-    ):
-        try:
-            tools = await client.get_tools(
-                server_name=server_name
-            )
+#     for server_name in (
+#         "tavily",
+#         "aviationstack",
+#         "weather"
+#     ):
+#         try:
+#             tools = await client.get_tools(
+#                 server_name=server_name
+#             )
 
-            all_tools.extend(tools)
+#             all_tools.extend(tools)
 
-            print(
-                f"\nAvailable tools from "
-                f"{server_name} MCP:\n"
-            )
+#             print(
+#                 f"\nAvailable tools from "
+#                 f"{server_name} MCP:\n"
+#             )
 
-            for tool in tools:
-                print(tool.name)
+#             for tool in tools:
+#                 print(tool.name)
 
-        except Exception as error:
-            print(
-                f"\nCould not connect to "
-                f"{server_name} MCP:\n{error}\n"
-            )
+#         except Exception as error:
+#             print(
+#                 f"\nCould not connect to "
+#                 f"{server_name} MCP:\n{error}\n"
+#             )
 
-    return all_tools
+#     return all_tools
 
 
 # ==========================================
